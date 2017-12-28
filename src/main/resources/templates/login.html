@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+
+<head>
+    <!-- Set character encoding for the document -->
+    <meta charset="utf-8"/>
+
+    <!-- Instruct Internet Explorer to use its latest rendering engine -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+    <!-- Viewport for responsive web design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- CSRF Meta tags -->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <!-- Document Title -->
+    <title>Concessionaire</title>
+
+    <!-- CSS -->
+
+    <!-- Bootstrap -->
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <!-- Font Awesome -->
+    <link th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <!-- Custom Theme Style -->
+    <link th:href="@{/css/base.css}"
+          rel="stylesheet" media="screen"/>
+
+    <!-- END CSS -->
+
+</head>
+
+<body>
+<div class="container">
+    <div class="login_wrapper">
+        <div class="login_form">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title text-center">
+                            <h1>Concessionaire</h1>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="text-center">
+                                <h2><span th:text="#{auth.signIn.title}"></span></h2>
+                            </div>
+
+                            <span th:if="${msg != null}">
+                                <p class="alert alert-success">
+                                    <i class="fa fa-check" aria-hidden="true"></i> <span th:text="#{${msg}}"></span>
+                                </p>
+                            </span>
+                            <span th:if="${errorMsg != null}">
+                                <p class="alert alert-danger">
+                                    <i class="fa fa-times" aria-hidden="true"></i> <span
+                                        th:text="#{${errorMsg}}"></span>
+                                </p>
+                            </span>
+
+                            <form id="loginForm" class="form-horizontal" th:object="${user}" th:action="@{/login}"
+                                  method="POST">
+
+                                <div class="intro">
+                                    <div class="input-group" th:classappend="${errorMsg != null ? 'has-error': ''}">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                                    </span>
+                                        <input th:type="text" th:field="*{username}" th:class="form-control"
+                                               th:placeholder="#{user.username}"/>
+                                    </div>
+                                </div>
+                                <div class="intro">
+                                    <div class="input-group" th:classappend="${errorMsg != null ? 'has-error': ''}">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-lock fa-fw" aria-hidden="true"></i>
+                                    </span>
+                                        <input th:type="password" th:field="*{password}" th:class="form-control"
+                                               th:placeholder="#{user.password}"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="remember-me"/>
+                                    <span th:text="#{auth.signIn.rememberMe}"></span>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit"
+                                            class="btn btn-primary btn-block"><span th:text="#{auth.signIn}"></span>
+                                    </button>
+                                </div>
+                            </form>
+
+                            <hr/>
+                            <div>
+                                <span th:text="#{auth.signIn.doNotHaveAccount.msg1}"></span>
+                                <a th:href="@{/signup}">
+                                    <span th:text="#{auth.signIn.doNotHaveAccount.msg2}"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en">
+
+<head>
+    <!-- Set character encoding for the document -->
+    <meta charset="utf-8"/>
+
+    <!-- Instruct Internet Explorer to use its latest rendering engine -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+    <!-- Viewport for responsive web design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- CSRF Meta tags -->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <!-- Document Title -->
+    <title>Concessionaire</title>
+
+    <!-- CSS -->
+
+    <!-- Bootstrap -->
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <!-- Font Awesome -->
+    <link th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <!-- Custom Theme Style -->
+    <link th:href="@{/css/base.css}"
+          rel="stylesheet" media="screen"/>
+
+    <!-- END CSS -->
+
+    <!-- JavaScript -->
+
+    <!-- jQuery -->
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+
+    <!-- Bootstrap -->
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+    <!-- Base -->
+    <script th:src="@{/js/base.js}"></script>
+
+    <!-- END JavaScript -->
+
+</head>
+<body>
+<div class="container">
+    <!-- HEADER -->
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- SIDE MENU -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+    <!-- CONTENT -->
+    <div layout:fragment="content"></div>
+
+    <!-- FOOTER -->
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

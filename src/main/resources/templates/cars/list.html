@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <!-- CSS -->
+
+    <!-- Bootstrap -->
+    <link th:href="@{/webjars/bootstrap-table/1.9.1/bootstrap-table.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <!-- END CSS -->
+
+    <!-- JavaScript -->
+
+    <!-- Bootstrap-table -->
+    <script th:src="@{/webjars/bootstrap-table/1.9.1/bootstrap-table.min.js}"></script>
+
+    <!-- Custom JS -->
+    <script th:src="@{/js/list.js}"></script>
+
+    <!-- END JavaScript -->
+</head>
+<body>
+
+<div class="container">
+        <!-- HEADER -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <!-- SIDE MENU -->
+        <div th:replace="fragments/sidebar :: sidebar"></div>
+
+        <th:block layout:fragment="content">
+            <div id="wrapper">
+                <div id="main-wrapper">
+                    <div id="main">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2><span th:text="#{cars.list.title}"></span></h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <table id="carsListTb"
+                                               class="table table-striped jambo_table"
+                                               data-toggle="table"
+                                               data-search="true"
+                                               data-trim-on-search="false"
+                                               data-pagination="true"
+                                               data-id-field="id"
+                                               data-unique-id="id"
+                                               data-url="list/json"
+                                               th:data-locale="${#locale}">
+                                            <thead>
+                                            <tr>
+                                                <th data-field="id"
+                                                    data-visible="false"
+                                                    data-switchable="false"></th>
+
+                                                <th data-field="make"
+                                                    data-sortable="true"
+                                                    th:text="#{car.make}"
+                                                    class="col-lg-4"></th>
+
+                                                <th data-field="model"
+                                                    data-sortable="true"
+                                                    th:text="#{car.model}"
+                                                    class="col-lg-6"></th>
+
+                                                <th data-field="year"
+                                                    data-sortable="true"
+                                                    th:text="#{car.year}"
+                                                    class="col-lg-2"></th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+
+</body>
+</html>

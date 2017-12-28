@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <!-- CSS -->
+
+    <!-- Bootstrap-switch -->
+    <link th:href="@{/webjars/bootstrap-switch/3.3.2/css/bootstrap3/bootstrap-switch.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <!-- END CSS -->
+
+    <!-- JavaScript -->
+
+    <!-- Bootstrap-switch -->
+    <script th:src="@{/webjars/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js}"></script>
+
+    <!-- Users -->
+    <script th:src="@{/js/administration/users/detail.js}"></script>
+
+    <!-- END JavaScript -->
+</head>
+<body>
+<div class="container">
+    <!-- HEADER -->
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- SIDE MENU -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+    <th:block layout:fragment="content">
+        <div id="wrapper">
+            <div id="main-wrapper">
+                <div id="main">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>
+                                        <span th:text="#{user.detail.title}"></span>
+                                    </h2>
+                                    <div class="clearfix"></div>
+                                    <span th:if="${msg != null}">
+                                        <p class="alert alert-success">
+                                            <i class="fa fa-check" aria-hidden="true"></i> <span
+                                                th:text="#{${msg}}"></span>
+                                        </p>
+                                    </span>
+                                    <span th:if="${errorMsg != null}">
+                                        <p class="alert alert-danger">
+                                            <i class="fa fa-times" aria-hidden="true"></i> <span
+                                                th:text="#{${errorMsg}}"></span>
+                                        </p>
+                                    </span>
+                                </div>
+                                <div class="x_content">
+                                    <form id="userDetailForm" class="form-horizontal"
+                                          th:method="put"
+                                          th:object="${user}"
+                                          th:action="@{/administration/users/save}">
+
+                                        <input type="hidden" th:field="*{id}"/>
+                                        <input type="hidden" th:field="*{username}"/>
+
+                                        <div class="row">
+                                            <div class="form-group"
+                                                 th:classappend="${#fields.hasErrors('email') ? 'has-error': ''}">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                    <label class="control-label required"
+                                                           th:field="*{email}"
+                                                           th:text="#{user.email}">
+                                                    </label>
+                                                    <input type="email"
+                                                           class="form-control"
+                                                           th:field="*{email}"/>
+                                                    <p class="alert alert-danger" th:if="${#fields.hasErrors('email')}"
+                                                       th:errors="*{email}"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" th:if="${#authentication.getPrincipal().getUsername() ne user.getUsername()}">
+                                            <div class="form-group">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                    <label class="control-label required"
+                                                           th:field="*{active}"
+                                                           th:text="#{user.active}">
+                                                    </label>
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-2 col-sm-12 col-xs-12">
+                                                            <input type="checkbox"
+                                                                   class="form-control"
+                                                                   th:field="*{active}"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="ln_solid"></div>
+
+                                        <a type="button" class="btn btn-default" th:href="@{/administration/users}">
+                                            <i class="fa fa-reply" aria-hidden="true"></i>
+                                            <span th:text="#{button.back}"></span>
+                                        </a>
+                                        <div class="pull-right">
+                                            <button class="btn btn-success">
+                                                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                                <span th:text="#{button.save}"></span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </th:block>
+</body>
+</html>

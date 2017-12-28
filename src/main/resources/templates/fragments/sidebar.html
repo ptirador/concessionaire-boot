@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <div th:replace="fragments/header :: header-css"></div>
+    <div th:replace="fragments/header :: header-js"></div>
+</head>
+<body>
+<div th:fragment="sidebar">
+    <div id="sidebar-wrapper">
+        <div id="sidebar">
+            <ul class="nav list-group">
+                <section layout:insert="~{fragments/menu :: menu}"
+                         th:with="menuItemsList=${session?.menu?.menusList}"></section>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

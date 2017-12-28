@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      layout:decorate="~{layouts/layout}">
+<body>
+<div class="container">
+    <!-- HEADER -->
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- SIDE MENU -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+    <th:block layout:fragment="content">
+        <div id="wrapper">
+            <div id="main-wrapper">
+                <div id="main">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>
+                                        <span th:if="${car.id != null}" th:text="#{car.detail.title}"></span>
+                                        <span th:if="${car.id == null}" th:text="#{car.new.title}"></span>
+                                    </h2>
+                                    <div class="clearfix"></div>
+                                    <span th:if="${msg != null}">
+                                        <p class="alert alert-success">
+                                            <i class="fa fa-check" aria-hidden="true"></i> <span
+                                                th:text="#{${msg}}"></span>
+                                        </p>
+                                    </span>
+                                    <span th:if="${errorMsg != null}">
+                                        <p class="alert alert-danger">
+                                            <i class="fa fa-times" aria-hidden="true"></i> <span
+                                                th:text="#{${errorMsg}}"></span>
+                                        </p>
+                                    </span>
+                                </div>
+                                <div class="x_content">
+                                    <form id="carDetailForm" class="form-horizontal" method="POST"
+                                          th:object="${car}"
+                                          th:action="@{/cars/save}">
+
+                                        <input type="hidden" th:field="*{id}"/>
+
+                                        <div class="row">
+                                            <div class="form-group"
+                                                 th:classappend="${#fields.hasErrors('make') ? 'has-error': ''}">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                    <label class="control-label required"
+                                                           th:field="*{make}"
+                                                           th:text="#{car.make}">
+                                                    </label>
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           th:field="*{make}"/>
+                                                    <p class="alert alert-danger" th:if="${#fields.hasErrors('make')}"
+                                                       th:errors="*{make}"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group"
+                                                 th:classappend="${#fields.hasErrors('model') ? 'has-error': ''}">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                    <label class="control-label required"
+                                                           th:field="*{model}"
+                                                           th:text="#{car.model}">
+                                                    </label>
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           th:field="*{model}"/>
+                                                    <p class="alert alert-danger" th:if="${#fields.hasErrors('model')}"
+                                                       th:errors="*{model}"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group"
+                                                 th:classappend="${#fields.hasErrors('year') ? 'has-error': ''}">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                    <label class="control-label required"
+                                                           th:field="*{year}"
+                                                           th:text="#{car.year}">
+                                                    </label>
+                                                    <input type="number"
+                                                           class="form-control"
+                                                           th:field="*{year}"/>
+                                                    <p class="alert alert-danger" th:if="${#fields.hasErrors('year')}"
+                                                       th:errors="*{year}"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="ln_solid"></div>
+
+                                        <a type="button" class="btn btn-default" th:href="@{/cars/list}">
+                                            <i class="fa fa-reply" aria-hidden="true"></i>
+                                            <span th:text="#{button.back}"></span>
+                                        </a>
+                                        <div class="pull-right">
+                                            <button class="btn btn-success">
+                                                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                                <span th:text="#{button.save}"></span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</body>
+</html>

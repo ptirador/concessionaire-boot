@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      layout:decorate="~{layouts/layout}">
+<body>
+
+<div class="container">
+    <!-- HEADER -->
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- SIDE MENU -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+    <th:block layout:fragment="content">
+        <div id="wrapper">
+            <div id="main-wrapper">
+                <div id="main">
+                    <div class="x_panel">
+                        <div class="x_title"></div>
+                        <div class="init">
+                            <h1><span th:text="#{application.title}"></span></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </th:block>
+
+    <!-- FOOTER -->
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+
+</body>
+</html>
