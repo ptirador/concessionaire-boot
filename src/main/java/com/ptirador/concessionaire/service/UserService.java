@@ -3,6 +3,7 @@ package com.ptirador.concessionaire.service;
 import com.ptirador.concessionaire.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author ptirador
@@ -23,7 +24,7 @@ public interface UserService {
      * @param id Id.
      * @return User bean object that matches the id. Null otherwise.
      */
-    User findById(String id);
+    Optional<User> findById(String id);
 
     /**
      * Finds a user bean by its email.
@@ -37,9 +38,9 @@ public interface UserService {
      * Inserts a user bean into database.
      *
      * @param user User bean.
-     * @return Number of affected registers.
+     * @return User inserted.
      */
-    int insertUser(User user);
+    User insertUser(User user);
 
     /**
      * Obtains all users.

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/administration/users")
@@ -85,12 +86,12 @@ public class UserAdminController {
     @GetMapping(URL_USER_DETAIL)
     public String getUserDetail(@PathVariable String id,
                                 Model model) {
-        User user = userService.findById(id);
-        if (null == user) {
+        Optional<User> user = userService.findById(id);
+        if (!user.isPresent()) {
             throw new ResourceNotFoundException();
         }
 
-        model.addAttribute(MDL_USER, user);
+        model.addAttribute(MDL_USER, user.get());
         return VIEW_USER_DETAIL;
     }
 

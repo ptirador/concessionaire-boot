@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Home controller.
@@ -62,8 +63,8 @@ public class CarAdminController {
      */
     @DeleteMapping(value = URL_DELETE_CAR, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Car> deleteCar(@PathVariable String id) {
-        Car car = carService.findById(id);
-        if (car == null) {
+        Optional<Car> car = carService.findById(id);
+        if (!car.isPresent()) {
             return ResponseEntity.notFound().build();
         }
         carService.deleteCarById(id);

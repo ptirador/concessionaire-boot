@@ -6,6 +6,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Implementation service for car management.
@@ -52,8 +53,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Car findById(String id) {
-        return carRepository.findOne(id);
+    public Optional<Car> findById(String id) {
+        return carRepository.findById(id);
     }
 
     @Override
@@ -63,6 +64,6 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void deleteCarById(String id) {
-        carRepository.delete(id);
+        carRepository.deleteById(id);
     }
 }

@@ -189,7 +189,7 @@ public class AuthController {
         } else {
             // Password encryption
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            boolean resultOk = userService.insertUser(user) > 0;
+            boolean resultOk = userService.insertUser(user) != null;
             if (resultOk) {
                 // Auto-login after successful registration.
                 authenticateUserAndSetSession(user, session);

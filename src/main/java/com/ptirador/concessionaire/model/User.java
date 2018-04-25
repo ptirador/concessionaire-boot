@@ -5,10 +5,10 @@ import com.ptirador.concessionaire.util.Constants;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
@@ -27,7 +27,7 @@ public class User implements Serializable {
     @Id
     private String id;
 
-    @NotEmpty(message = "{msg.mandatory.field}")
+    @NotBlank(message = "{msg.mandatory.field}")
     private String email;
 
     private String username;

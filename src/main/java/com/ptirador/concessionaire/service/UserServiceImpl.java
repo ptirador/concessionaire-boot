@@ -5,6 +5,7 @@ import com.ptirador.concessionaire.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author ptirador
@@ -32,8 +33,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(final String id) {
-        return userRepository.findOne(id);
+    public Optional<User> findById(final String id) {
+        return userRepository.findById(id);
     }
 
     @Override
@@ -42,8 +43,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int insertUser(final User user) {
-        return null != userRepository.save(user) ? 1 : 0;
+    public User insertUser(final User user) {
+        return userRepository.save(user);
     }
 
     @Override
