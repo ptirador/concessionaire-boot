@@ -38,10 +38,7 @@ spring:
   data:
       mongodb:
         database: concessionaire
-        host: ds153003.mlab.com
-        password: test
-        port: 53003
-        username: test
+        uri: mongodb+srv://test:test@concessionaire.gusdn.mongodb.net/concessionaire?retryWrites=true&w=majority
 
   # THYMELEAF (ThymeleafAutoConfiguration)
   thymeleaf:
