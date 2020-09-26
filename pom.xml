@@ -32,7 +32,7 @@
         <bootstrap.version>3.3.7</bootstrap.version>
         <bootstrap-table.version>1.9.1</bootstrap-table.version>
         <bootstrap-switch.version>3.3.2</bootstrap-switch.version>
-        <jquery.version>3.2.1</jquery.version>
+        <jquery.version>3.5.1</jquery.version>
         <fontawesome.version>4.7.0</fontawesome.version>
 
     </properties>
