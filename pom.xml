@@ -29,7 +29,7 @@
         <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
 
         <!-- WebJars -->
-        <bootstrap.version>3.3.7</bootstrap.version>
+        <bootstrap.version>4.5.2</bootstrap.version>
         <bootstrap-table.version>1.9.1</bootstrap-table.version>
         <bootstrap-switch.version>3.3.2</bootstrap-switch.version>
         <jquery.version>3.2.1</jquery.version>
