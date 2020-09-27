@@ -26,7 +26,7 @@
           rel="stylesheet" media="screen"/>
 
     <!-- Font Awesome -->
-    <link th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"
+    <link th:href="@{/webjars/font-awesome/5.14.0/css/all.min.css}"
           rel="stylesheet" media="screen"/>
 
     <!-- Custom Theme Style -->
@@ -56,7 +56,7 @@
 
                             <span th:if="${errorMsg != null}">
                                 <p class="alert alert-danger">
-                                    <i class="fa fa-times" aria-hidden="true"></i> <span
+                                    <i class="fas fa-times" aria-hidden="true"></i> <span
                                         th:text="#{${errorMsg}}"></span>
                                 </p>
                             </span>
@@ -68,7 +68,7 @@
                                     <div class="input-group"
                                          th:classappend="${#fields.hasErrors('username') ? 'has-error': ''}">
                                     <span class="input-group-addon">
-                                        <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                                        <i class="fas fa-user fa-fw" aria-hidden="true"></i>
                                     </span>
                                         <input type="text"
                                                class="form-control"
@@ -82,7 +82,7 @@
                                     <div class="input-group"
                                          th:classappend="${#fields.hasErrors('email') ? 'has-error': ''}">
                                     <span class="input-group-addon">
-                                        <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
+                                        <i class="fas fa-envelope fa-fw" aria-hidden="true"></i>
                                     </span>
                                         <input type="email"
                                                class="form-control"
@@ -96,7 +96,7 @@
                                     <div class="input-group"
                                          th:classappend="${#fields.hasErrors('password') ? 'has-error': ''}">
                                     <span class="input-group-addon">
-                                        <i class="fa fa-lock fa-fw" aria-hidden="true"></i>
+                                        <i class="fas fa-lock fa-fw" aria-hidden="true"></i>
                                     </span>
                                         <input type="password"
                                                class="form-control"

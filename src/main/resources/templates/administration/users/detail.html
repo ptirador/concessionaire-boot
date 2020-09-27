@@ -45,13 +45,13 @@
                                     <div class="clearfix"></div>
                                     <span th:if="${msg != null}">
                                         <p class="alert alert-success">
-                                            <i class="fa fa-check" aria-hidden="true"></i> <span
+                                            <i class="fas fa-check" aria-hidden="true"></i> <span
                                                 th:text="#{${msg}}"></span>
                                         </p>
                                     </span>
                                     <span th:if="${errorMsg != null}">
                                         <p class="alert alert-danger">
-                                            <i class="fa fa-times" aria-hidden="true"></i> <span
+                                            <i class="fas fa-times" aria-hidden="true"></i> <span
                                                 th:text="#{${errorMsg}}"></span>
                                         </p>
                                     </span>
@@ -103,12 +103,12 @@
                                         <div class="ln_solid"></div>
 
                                         <a type="button" class="btn btn-default" th:href="@{/administration/users}">
-                                            <i class="fa fa-reply" aria-hidden="true"></i>
+                                            <i class="fas fa-reply" aria-hidden="true"></i>
                                             <span th:text="#{button.back}"></span>
                                         </a>
                                         <div class="pull-right">
                                             <button class="btn btn-success">
-                                                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                                <i class="far fa-floppy" aria-hidden="true"></i>
                                                 <span th:text="#{button.save}"></span>
                                             </button>
                                         </div>

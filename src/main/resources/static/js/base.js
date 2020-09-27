@@ -62,7 +62,7 @@ function setupCsrfToken() {
  * @returns {String}
  */
 function deleteFormatter() {
-    return '<a href="#"><i class="fa fa-trash-o fa-lg"></i></a>';
+    return '<a href="#"><i class="far fa-trash-alt fa-lg"></i></a>';
 }
 
 
@@ -75,9 +75,9 @@ function deleteFormatter() {
  */
 function showMessage(table, message, isError) {
     if (isError) {
-        table.before("<p class='alert alert-danger'><i class='fa fa-times' aria-hidden='true'></i> " + message + "</p>");
+        table.before("<p class='alert alert-danger'><i class='fas fa-times' aria-hidden='true'></i> " + message + "</p>");
     } else {
-        table.before("<p class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i> " + message + "</p>");
+        table.before("<p class='alert alert-success'><i class='fas fa-check' aria-hidden='true'></i> " + message + "</p>");
     }
 
     fadeMessage();

@@ -122,7 +122,8 @@ Secondary color:  #2C333E
     color: #fff;
 }
 
-#sidebar li.menu-parent a span.fa {
+#sidebar li.menu-parent a span.fas,
+#sidebar li.menu-parent a span.far {
     float: right;
 }
 
@@ -337,8 +338,10 @@ table.table thead {
     margin-right: auto;
 }
 
-.login_form .input-group-addon > .fa,
-.sign_up_form .input-group-addon > .fa {
+.login_form .input-group-addon > .fas,
+.login_form .input-group-addon > .far,
+.sign_up_form .input-group-addon > .fas
+.sign_up_form .input-group-addon > .far {
     color: #2c484e;
 }
 
